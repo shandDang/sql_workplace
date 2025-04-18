@@ -1,5 +1,5 @@
-1) mysql이 설치되어 있는 디렉토리로 이동
-2) my sql -h localhost -u root -p;
+1) mysql이 설치되어 있는 디렉토리로 이동(cmd)
+2) mysql -h localhost -u root -p
   비밀번호입력
 3)내가 사용할 데이터베이스 선택
   여기선 use dev;
@@ -13,3 +13,18 @@ emp : 어떤 회사의 사원들
 
 6)사원 테이블의 모든 정보를 출력하시오
 select *from emp;
+
+7)담당업무가 SALESMAN인 사원들의 이름, 급여, 담당업무를 출력하시오
+select ename, sal, job
+from emp
+where job='salesman';
+
+8)사원의 이름과 급여를 출력하되, 급여를 기준으로 오름차순으로 정렬하세요
+select  ename, sal
+from emp
+order by sal asc;(dsc)
+
+9)급여가 2800보다 큰 사원의 이름, 급여, 업무를 출력하시오
+select ename, sal, job
+from emp
+where sal >2800;
