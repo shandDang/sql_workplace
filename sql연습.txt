@@ -1,14 +1,58 @@
+정리퀴즈1.
 1)select * from emp;
 2)select ename, sal from emp;
-3)select ename, sal from emp where deptno=10;
+3)select ename, sal from emp where deptno=10;(따옴표 주지않는것 숫자형 리터럴)
 4)select ename, sal from emp where sal >= 3000;
 5)select ename, hiredate from emp where job="manager";
-6)select ename, sal from emp where sal between 1000 and 2000;
+6)select ename, sal from emp where sal between 1000 and 3000;(sal >= 1000 and <=3000도 가능)
 7)select ename from emp where sal <2000 or comm >= 500;
 8)select * from emp where ename like "A%";(A%는 A이후에 무슨 문자가 와도 상관없다의 명령어)
 9)select ename, comm from emp where comm is not null;
+
 10)select * from emp where job = "salesman";
+{"salesman"은 sql문이 아닌 데이터 이므로 대소문자를 구분하는게 원칙이지만 MySQL에서는
+구분하지 않는다.(oracle에서는 구분 함)}
+
+
 11)select * from dept;
 12)select sal * 1.1 as increased from emp;
+select ename, sal + sal*(10/100.0) from emp;도 가능
+
 13)select * from emp order by hiredate asc;
 14)select * from emp order by sal asc;
+--------------------------------------------------------------------------------
+DML(테이블 구성 명령)
+1)테이블 복사하기
+create table emp2 as select * from emp;
+
+2)부서테이블 복사하기
+create table dept2 as select * from dept;
+
+3)부서정보에 다음의 데이터를 넣어보기
+부서번호 : 50
+부서명은 : secret
+부서위치 : seoul
+(레코드 1건 넣기)(create)
+insert into dept2(deptno, dname,loc) values(50, "SECRET", "SEOUL");
+
+4)사원 한명 지우기
+(레코드 1건 삭제)(delete)
+delete from emp2 where sal = 800;
+
+5)10번부서 사원들 모두 삭제
+delete from emp2 where deptno = 10;
+
+6)emp2의 scott의 job을 (ANALYST에서 분석으로 바꿈)
+update emp2 set job="분석" where empno = 7788;
+
+----------------------------
+DDL(존재와 관련된 쿼리문 생성, 소멸, 변경)
+drop table emp2;
+drop table dept2;
+
+정리퀴즈2.
+1)
+2)
+3)update dept2 set dname = "세일즈" where deptno = 30;
+4)update emp2 set sal = 3500 where ename="WARD";
+5)update emp2 set ename="회장", sal = 9000, comm = 5000 where empno = 7839;
