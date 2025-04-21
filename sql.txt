@@ -1,17 +1,15 @@
-1) mysql이 설치되어 있는 디렉토리로 이동(cmd)
+1) mysql이 설치되어 있는 디렉토리로 이동(cmd) - bin
 2) mysql -h localhost -u root -p
   비밀번호입력
 3)내가 사용할 데이터베이스 선택
   여기선 use dev;
 
-4) 설치된 2개의 테이블
-dept : 어떤 회사의 부서
-emp : 어떤 회사의 사원들
+4)show tables; - 설치된 테이블들 보여줌
 
-5) 부서 테이블의 모든 정보를 출력하시오
+5) 테이블 dept 의 모든 정보를 출력하시오
  select * from dept;
 
-6)사원 테이블의 모든 정보를 출력하시오
+6)테이블 emp 의 모든 정보를 출력하시오
 select *from emp;
 
 7)담당업무가 SALESMAN인 사원들의 이름, 급여, 담당업무를 출력하시오

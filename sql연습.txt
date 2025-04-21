@@ -34,13 +34,16 @@ create table dept2 as select * from dept;
 부서위치 : seoul
 (레코드 1건 넣기)(create)
 insert into dept2(deptno, dname,loc) values(50, "SECRET", "SEOUL");
+- 값 지정 안하고 추가하면 NULL
 
 4)사원 한명 지우기
 (레코드 1건 삭제)(delete)
 delete from emp2 where sal = 800;
-
+- 줄 통째로 지워짐(sal이 800인 사람의)
+		(아래는 deptno가 10인 사람들의
 5)10번부서 사원들 모두 삭제
 delete from emp2 where deptno = 10;
+
 
 6)emp2의 scott의 job을 (ANALYST에서 분석으로 바꿈)
 update emp2 set job="분석" where empno = 7788;
