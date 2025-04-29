@@ -1,0 +1,81 @@
+1) SMITH와 동일한 업무를 하는 사원의 이름, 업무, 입사일을 출력하세요.
+select ename, job, hiredate
+from emp
+where deptno = (select deptno from emp where ename ='SMITH');
+
+2)WARD의 입사일보다 빠른 사원들을 출력하세요.
+select *
+from emp
+where hiredate < (select hiredate from emp where ename='ward');
+
+3)사원의 평균 급여보다 적은 급여를 받는 사원의 이름, 급여를 출력하세요.
+select ename, sal
+from emp
+where sal < (select avg(sal) from emp);
+
+4)부서의 위치가 DALLAS인 부서에 근무하는 사원들의 이름, 부서번호를 출력하세요.
+select ename, deptno
+from emp
+where deptno = (select deptno from dept where loc = 'DALLAS');
+
+5)ALLEN의 매니저의 사원번호, 이름 입사일을 출력하세요.
+select empno, ename, hiredate
+from emp
+where empno = (select mgr from emp where ename = 'ALLEN');
+
+6)커미션 계약을 한 사원들의 평균급여에 1000을 더한 급여보다,
+  더 많은 급여를 받는 사원의 이름, 급여를 출력하세요.
+select ename, sal
+from emp
+where sal > (select avg(comm) + 1000 from emp); 
+
+7)급여가 두번째로 높은 사원과 같은 부서에서 근무하는 사원의
+   이름, 급여, 부서번호를 출력하세요.
+select ename, sal, deptno
+from emp
+where deptno = (select deptno from emp order by sal desc limit 1,1);
+
+select ename, sal, deptno
+from emp
+where deptno = (select deptno from emp order by sal desc limit 1 offset 1);
+
+
+8)이름이 A로 시작하는 사원들의 급여의 합보다 높은 급여를 받는 사원의
+   사원명, 급여를 출력하세요.
+select ename, sal
+from emp
+where sal > (select sum(sal) from emp where ename like 'A%');
+
+9)입사일이 세번째로 늦은 사원과 같은 부서에서 근무하는 사원들의 급여의 합을 출력하세요.
+select sum(sal)
+from emp
+where deptno = (select deptno from emp order by hiredate asc limit 3,1);
+
+select sum(sal)
+from emp
+where deptno = (select deptno from emp order by hiredate asc limit 1 offset 2);
+
+
+
+****SUB의 SUB의 SUB
+10)최대 커미션을 받는 사원의 매니저가 근무하는 부서명, 위치, 부서번호를 출력하세요.
+select dname, loc, deptno
+from dept
+where deptno = (
+	select deptno from emp
+ where empno = (
+	select mgr from emp where comm = (
+	select max(comm) from emp
+	)
+	)
+);
+
+11)최대급여에서 최소급여를 뺀 금액보다도 더 많은 급여를 받는 사원의 이름, 급여를 출력하세요.
+select ename, sal
+from emp
+where sal > (select max(sal) - min(sal) from emp);
+
+12)SALES 부서의 평균 급여보다 급여를 더 많이 받는 사원의 이름, 급여를 출력하세요.
+select ename, sal
+from emp
+where sal > (select avg(sal) from emp where job='SALESMAN');
