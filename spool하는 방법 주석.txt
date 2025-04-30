@@ -1,0 +1,5 @@
+SQL> --spool '파일을 저장하려는 경로/만들려는 문서이름.txt'
+SQL> --하면 그때부터 명령어 녹화시작됨
+SQL> --끝나면 spool off; 하면 이때까지 실행시킨 명령어가 모두 txt형식을 저장됨(오타포함)
+SQL> --이제 spool off할거임 ㅂㅂㅂㅂ
+SQL> spool off

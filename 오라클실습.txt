@@ -1,0 +1,222 @@
+SQL> create tablespace javaspace
+  2  data file 'C:\oraclexe\app\oracle\oradata\XE\JAVASPACE.DBF'
+  3  size 2m;
+data file 'C:\oraclexe\app\oracle\oradata\XE\JAVASPACE.DBF'
+*
+ERROR at line 2:
+ORA-02180: invalid option for CREATE TABLESPACE 
+
+
+SQL> create tablespace javaspace2
+  2  datafile 'C:\oraclexe\app\oracle\oradata\XE\JAVASPACE2.DBF'
+  3  size 2m;
+
+Tablespace created.
+
+SQL> select * from javaspace2;
+select * from javaspace2
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> connect js/1234
+Connected.
+SQL> show user
+USER is "JS"
+SQL> create table membership(
+  2  id varchar2(20)
+  3  , pwd varchar2(64)
+  4  , name varchar2(20)
+  5  , age number
+  6  );
+create table membership(
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> select * from membership;
+
+no rows selected
+
+SQL> insert into membership(Id,pwd,name,age) values('adams','0000','ad',25);
+
+1 row created.
+
+SQL> select * from membership;
+
+ID                                                                              
+----------------------------------------                                        
+PWD                                                                             
+--------------------------------------------------------------------------------
+NAME                                            AGE                             
+---------------------------------------- ----------                             
+adams                                                                           
+0000                                                                            
+ad                                               25                             
+                                                                                
+
+SQL> set line 400;
+SQL> select * from membership;
+
+ID                                       PWD                                                                                                                              NAME                                            AGE                                                                                                                                                                                   
+---------------------------------------- -------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------- ----------                                                                                                                                                                                   
+adams                                    0000                                                                                                                             ad                                               25                                                                                                                                                                                   
+
+SQL> member
+SP2-0042: unknown command "member" - rest of line ignored.
+SQL> show table;
+SP2-0158: unknown SHOW option "table"
+SQL> show tablespace;
+SP2-0158: unknown SHOW option "tablespace"
+SQL> show tablespaces;
+SP2-0735: unknown SHOW option beginning "tablespace..."
+SQL> help
+
+ HELP
+ ----
+
+ Accesses this command line help system. Enter HELP INDEX or ? INDEX
+ for a list of topics.
+
+ You can view SQL*Plus resources at
+     http://www.oracle.com/technology/tech/sql_plus/
+ and the Oracle Database Library at
+     http://www.oracle.com/technology/documentation/
+
+ HELP|? [topic]
+
+
+SQL> create table member(
+  2  id vatchar2(20) unique
+  3  , name varchar(20) Not NULL
+  4  , gender char(2)
+  5  , regdate default sysdate
+  6  , constraint chk_Membership check(gender='남'or gender='여')
+  7  );
+id vatchar2(20) unique
+           *
+ERROR at line 2:
+ORA-00907: missing right parenthesis 
+
+
+SQL> ㄷㅇ
+SP2-0042: unknown command "ㄷㅇ" - rest of line ignored.
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table member(
+  2  id varchar2(20) unique
+  3  , name varchar(20) Not NULL
+  4  , gender char(2)
+  5  , regdate default sysdate
+  6  , constraint chk_Membership check(gender='남'or gender='여')
+  7* )
+SQL> run
+  1  create table member(
+  2  id varchar2(20) unique
+  3  , name varchar(20) Not NULL
+  4  , gender char(2)
+  5  , regdate default sysdate
+  6  , constraint chk_Membership check(gender='남'or gender='여')
+  7* )
+, regdate default sysdate
+  *
+ERROR at line 5:
+ORA-02263: need to specify the datatype for this column 
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table member(
+  2  id varchar2(20) unique
+  3  , name varchar(20) Not NULL
+  4  , gender char(2)
+  5  , regdate date default sysdate
+  6  , constraint chk_Membership check(gender='남'or gender='여')
+  7* )
+SQL> run
+  1  create table member(
+  2  id varchar2(20) unique
+  3  , name varchar(20) Not NULL
+  4  , gender char(2)
+  5  , regdate date default sysdate
+  6  , constraint chk_Membership check(gender='남'or gender='여')
+  7* )
+
+Table created.
+
+SQL> insert into member(id, name, gender) values('batman','배트맨','여');
+insert into member(id, name, gender) values('batman','배트맨','여')
+                                                                 *
+ERROR at line 1:
+ORA-12899: value too large for column "JS"."MEMBER"."GENDER" (actual: 3, maximum: 2) 
+
+
+SQL> alter table member
+  2  drop column gender;
+
+Table altered.
+
+SQL> alter table member
+  2  add gender varchar(8) check (gender='남' or gender='여');
+
+Table altered.
+
+SQL> insert into member(id, name, gender) values('batman','배트맨','여');
+
+1 row created.
+
+SQL> select * from member;
+
+ID                                       NAME                                     REGDATE  GENDER                                                                                                                                                                                                                                                                                                               
+---------------------------------------- ---------------------------------------- -------- ----------------                                                                                                                                                                                                                                                                                                     
+batman                                   배트맨                                   25/04/30 여                                                                                                                                                                                                                                                                                                                   
+
+SQL> insert into member(id, name, gender) values('batman','배트맨','여');
+insert into member(id, name, gender) values('batman','배트맨','여')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (JS.SYS_C007001) violated 
+
+
+SQL> select * from member;
+
+ID                                       NAME                                     REGDATE  GENDER                                                                                                                                                                                                                                                                                                               
+---------------------------------------- ---------------------------------------- -------- ----------------                                                                                                                                                                                                                                                                                                     
+batman                                   배트맨                                   25/04/30 여                                                                                                                                                                                                                                                                                                                   
+
+SQL> insert into member(id, name, gender) values('batwoman','배트우먼','남');
+
+1 row created.
+
+SQL> select * from member;
+
+ID                                       NAME                                     REGDATE  GENDER                                                                                                                                                                                                                                                                                                               
+---------------------------------------- ---------------------------------------- -------- ----------------                                                                                                                                                                                                                                                                                                     
+batman                                   배트맨                                   25/04/30 여                                                                                                                                                                                                                                                                                                                   
+batwoman                                 배트우먼                                 25/04/30 남                                                                                                                                                                                                                                                                                                                   
+
+SQL> insert into member(id, name, gender) values('supermaN','','남');
+insert into member(id, name, gender) values('supermaN','','남')
+                                                       *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("JS"."MEMBER"."NAME") 
+
+
+SQL> insert into member(id, name, gender) values('supermaN','슈퍼맨','남');
+
+1 row created.
+
+SQL> select * from member;
+
+ID                                       NAME                                     REGDATE  GENDER                                                                                                                                                                                                                                                                                                               
+---------------------------------------- ---------------------------------------- -------- ----------------                                                                                                                                                                                                                                                                                                     
+batman                                   배트맨                                   25/04/30 여                                                                                                                                                                                                                                                                                                                   
+batwoman                                 배트우먼                                 25/04/30 남                                                                                                                                                                                                                                                                                                                   
+supermaN                                 슈퍼맨                                   25/04/30 남                                                                                                                                                                                                                                                                                                                   
+
+SQL> --대문자로 입력하면 대문자로 출력 이래저래 헷갈리니 그냥 대문자로 문서작성 해버리는게 나을듯?
+SQL> spool off;
