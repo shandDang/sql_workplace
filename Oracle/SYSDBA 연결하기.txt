@@ -1,0 +1,19 @@
+
+C:\Users\a>SQLPLUS SYSTEM/1234
+
+SQL*Plus: Release 11.2.0.2.0 Production on 수 5월 7 17:03:25 2025
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+
+Connected to:
+Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+SQL> EXIT
+Disconnected from Oracle Database 11g Express Edition Release 11.2.0.2.0 - 64bit Production
+
+C:\Users\a>SQLPLUS SYS/ AS SYSDBA
+
+SQL*Plus: Release 11.2.0.2.0 Production on 수 5월 7 17:04:28 2025
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
