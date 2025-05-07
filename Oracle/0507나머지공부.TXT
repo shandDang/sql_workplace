@@ -1,0 +1,41 @@
+SQL> SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
+
+SEQUENCE_NAME                                                                                                                                                                                                                                                                                                                                                                                                   
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                    
+SEQ_MEMBER3                                                                                                                                                                                                                                                                                                                                                                                                     
+
+SQL> --SEQUENCE가 만들어져서 저장되어 있는지 검색이 가능하다.
+SQL> --SYSTEM으로 접속해서 이미 SEQUENCE 관리권한을 받아온 상태.
+SQL> INSERT INTO MEMBER3(ID, USERID, EMAIL)
+  2  VALUES(SEQ_MEMBER3.NEXTVAL, 'KING', 'DAUM');
+
+1 row created.
+
+SQL> SELECT * FROM MEMBER3;
+
+        ID EMAIL                                              REGDATE  USERID                                                                                                                                                                                                                                                                                                                                   
+---------- -------------------------------------------------- -------- ----------------------------------------                                                                                                                                                                                                                                                                                                 
+         3 DAUM                                               25/05/07 KING                                                                                                                                                                                                                                                                                                                                     
+
+SQL> DROP SEQUENCE SEQ_MEMBER3;
+
+Sequence dropped.
+
+SQL> VALUES(SEQ_MEMBER3.NEXTVAL, 'KIDG', 'NAVER');
+SP2-0734: unknown command beginning "VALUES(SEQ..." - rest of line ignored.
+SQL> DROP TABLE MEMBER3;
+
+Table dropped.
+
+SQL> SELECT TABLE_NAME FROM USER_TABLES;
+
+TABLE_NAME                                                                                                                                                                                                                                                                                                                                                                                                      
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                    
+MEMBER                                                                                                                                                                                                                                                                                                                                                                                                          
+MEMBER2                                                                                                                                                                                                                                                                                                                                                                                                         
+
+SQL> DROP TABLE MEMBER;
+
+Table dropped.
+
+SQL> SPOOL OFF;
