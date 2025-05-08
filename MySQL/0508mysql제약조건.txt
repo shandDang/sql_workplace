@@ -1,0 +1,38 @@
+mysql  제약조건 부여하기
+
+데이터베이스 목록조회
+show databases;
+use dev;
+
+선택된 데이터베이스 내에 존재하는 테이블 목록
+show tables;
+
+mysql에서 제약조선 부여하여 테이블 만들기.
+unique, not null, check, primary key, default, foreign key;
+
+mysql> create table member2(
+    -> MEMBER2_ID INT PRIMARY KEY AUTO_INCREMENT
+    -> , USER_ID VARCHAR(20)
+    -> UNIQUE
+    -> , NAME VARCHAR(15) NOT NULL
+    -> ,REGDATE TIMESTAMP DEFAULT NOW()
+    -> , GENDER CHAR(6) CHECK(GENDER='남' OR GENDER='여')
+    -> );
+
+물리적으로 분리된 EMP, DEPT를 하나의 테이블처럼 합쳐서 보여주기
+SELECT ENAME, SAL, DNAME, LOC
+FROM EMP, DEPT;
+
+아래의 JOIN을 이용하면 아무런 조건이 없으므로, N * M의 레코드가 조합이 되므로
+두 테이블의 공통이 되는 KEY값을 이용하여 조건을 부여하면
+원하는대로 합쳐질 수 있겠죠?(예상:14명의 정보)
+
+조건 EMP의 DEPTNO, DEPT의 DEPTNO가 같은것만 골라서(이 문단 마지막 줄 코드랑 같음)
+SELECT ENAME, SAL, DNAME, LOC
+FROM EMP, DEPT
+WHERE EMP.DEPTNO=DEPT.DEPTNO;
+
+
+
+mysql> SELECT EMP.*,LOC FROM DEPT, EMP
+    -> WHERE EMP.DEPTNO = DEPT.DEPTNO;  //EMP.*은 EMP테이블의 모든 정보만..!
