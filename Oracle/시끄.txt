@@ -1,0 +1,61 @@
+SQL> --왜 member table에 밀어 넣었는데 리스트가 저장이 안되고 난리,,
+SQL> select column_name from table member;
+select column_name from table member
+                              *
+ERROR at line 1:
+ORA-00906: missing left parenthesis 
+
+
+SQL> select column_name from table_member;
+select column_name from table_member
+                        *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> insert into member(ID,EMAIL)
+  2  VALUES(SEQ_MEMBER,'DAUM');
+VALUES(SEQ_MEMBER,'DAUM')
+       *
+ERROR at line 2:
+ORA-00984: column not allowed here 
+
+
+SQL> SHOW USER;
+USER is "JS"
+SQL> INSERT INTO MEMBER3(ID,USERID,EMAIL)
+  2  VALUES(SEQ_MEMBER.NEXTVAL, 'KING', 'DAUM');
+INSERT INTO MEMBER3(ID,USERID,EMAIL)
+            *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> INSERT INTO MEMBER(ID,USERID,EMAIL)
+  2  VALUES(SEQ_MEMBER.NEXTVAL, 'KING', 'DAUM');
+INSERT INTO MEMBER(ID,USERID,EMAIL)
+                      *
+ERROR at line 1:
+ORA-00904: "USERID": invalid identifier 
+
+
+SQL> INSERT INTO MEMBER(ID,EMAIL)
+  2  VALUES(SEQ_MEMBER.NEXTVAL, 'DAUM');
+INSERT INTO MEMBER(ID,EMAIL)
+*
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("JS"."MEMBER"."ENAME") 
+
+
+SQL> INSERT INTO MEMBER(ID,EMAIL,ENAME)
+  2  VALUES(SEQ_MEMBER.NEXTVAL, 'DAUM', 'VARCHAR');
+
+1 row created.
+
+SQL> SELECT * FROM MEMBER;
+
+        ID ENAME                                    EMAIL                                              REGDATE                                                                                                                                                                                                                                                                                                  
+---------- ---------------------------------------- -------------------------------------------------- --------                                                                                                                                                                                                                                                                                                 
+         8 VARCHAR                                  DAUM                                               25/05/09                                                                                                                                                                                                                                                                                                 
+
+SQL> SPOOL OFF;
