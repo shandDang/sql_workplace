@@ -1,0 +1,111 @@
+SQL> set line 400
+SQL> select table_name from user_tables;
+
+TABLE_NAME                                                                                                                                                                                                                                                                                                                                                                                                      
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                    
+DEPT                                                                                                                                                                                                                                                                                                                                                                                                            
+EMP                                                                                                                                                                                                                                                                                                                                                                                                             
+CUSTOMER                                                                                                                                                                                                                                                                                                                                                                                                        
+
+SQL> --ERD를 보고서 참고하여 테이블 생성하기
+SQL> --E(ENTIRY)RRELATION)D(DIAGRAM)= 개체관계도
+SQL> --반려동몰의 주인 만들기
+SQL> CREATE TABLE OWNER(
+  2  OWNER_ID NUMBER PRIMARY KEY
+  3  , OWNER_NAME VARCHAR2(20)
+  4  , PHONE VARCHAR2(20)
+  5  );
+
+Table created.
+
+SQL> SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
+
+SEQUENCE_NAME                                                                                                                                                                                                                                                                                                                                                                                                   
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                    
+SEQ_CUSTOMER                                                                                                                                                                                                                                                                                                                                                                                                    
+
+SQL> CREATE SEQUENCE SEQ_OWNER
+  2  INCREMENT BY 1
+  3  START WITH 1;
+
+Sequence created.
+
+SQL> SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
+
+SEQUENCE_NAME                                                                                                                                                                                                                                                                                                                                                                                                   
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                    
+SEQ_CUSTOMER                                                                                                                                                                                                                                                                                                                                                                                                    
+SEQ_OWNER                                                                                                                                                                                                                                                                                                                                                                                                       
+
+SQL> 
+SQL> CREATE TABLE ANIMALTYPE(
+  2  ANIMALTYPE_ID NUMBER PRIMARY KEY
+  3  , TYPE_NAME VARCHAR2(25)
+  4  );
+
+Table created.
+
+SQL> CREATE SEQUENCE SEQ_ANIMALTYPE
+  2  INCREMENT BY 1
+  3  START WITH1;
+START WITH1
+      *
+ERROR at line 3:
+ORA-00970: missing WITH keyword 
+
+
+SQL> CREATE SEQUENCE SEQ_ANIMALTYPE
+  2  INCREMENT BY 1
+  3  START WITH 1;
+
+Sequence created.
+
+SQL> CREATE SEQUENCE SEQ_ANIMALTYPE
+  2  ;
+CREATE SEQUENCE SEQ_ANIMALTYPE
+                *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object 
+
+
+SQL> CREATE TABLE PET(
+  2  PET_ID NUMBER PRIMARY KEY
+  3  ,  PET_NAME VARCHAR2(20)
+  4  , AGE NUMBER
+  5  , OWNER_ID NUMBER
+  6  , ANIMALTYPE_ID NUMBER
+  7  , CONSTRAINT FK_OWNER_PET FOREIGN KEY(OWNER_ID) REFERENCES OWNER(OWNER_ID)
+  8  , CONSTRAINT FK_ANIMALTYPE_PET FOREIGN KEY(ANIMALTYPE_ID) REFERENCES ANIMALTYPE(ANIMALTYPE_ID)
+  9  );
+
+Table created.
+
+SQL> CREATE SEQUENCE SEQ_PET
+  2  INCREMENT BY 1
+  3  START WITH 1;
+
+Sequence created.
+
+SQL> SELECT TABLE_NAME FROM USER_TABLES;
+
+TABLE_NAME                                                                                                                                                                                                                                                                                                                                                                                                      
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                    
+DEPT                                                                                                                                                                                                                                                                                                                                                                                                            
+EMP                                                                                                                                                                                                                                                                                                                                                                                                             
+CUSTOMER                                                                                                                                                                                                                                                                                                                                                                                                        
+OWNER                                                                                                                                                                                                                                                                                                                                                                                                           
+ANIMALTYPE                                                                                                                                                                                                                                                                                                                                                                                                      
+PET                                                                                                                                                                                                                                                                                                                                                                                                             
+
+6 rows selected.
+
+SQL> SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
+
+SEQUENCE_NAME                                                                                                                                                                                                                                                                                                                                                                                                   
+------------------------------------------------------------                                                                                                                                                                                                                                                                                                                                                    
+SEQ_ANIMALTYPE                                                                                                                                                                                                                                                                                                                                                                                                  
+SEQ_CUSTOMER                                                                                                                                                                                                                                                                                                                                                                                                    
+SEQ_OWNER                                                                                                                                                                                                                                                                                                                                                                                                       
+SEQ_PET                                                                                                                                                                                                                                                                                                                                                                                                         
+
+SQL> SPOOL OFF;

@@ -1,0 +1,822 @@
+SQL> --SQLPLUS ¸í·É¾îÁß ÇÑ ÆäÀÌÁö´ç ¸î°³ÀÇ ·¹ÄÚµå¸¦ ¼ö¿ëÇÒ Áö¸¦ °áÁ¤ÇÏ´Â ¸í·É¾î
+SQL> --´Â
+SQL> SET PAGESIZE 20
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                                                                                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                                                                                 
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                                                                                 
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                                                                                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                                                                                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                                                                                 
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                                                                                 
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                                                                                 
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                                                                                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                                                                                 
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                                                                                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                                                                                 
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                                                                                 
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                                                                                 
+
+14 rows selected.
+
+SQL> SET PAGESIZE 11
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                                                                                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                                                                                 
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                                                                                 
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                                                                                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                                                                                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                                                                                 
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                                                                                 
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                                                                                 
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                                                                                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                                                                                 
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                                                                                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                                                                                 
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                                                                                 
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                                                                                 
+
+14 rows selected.
+
+SQL> --Å×ÀÌºíÀÇ µ¥ÀÌÅÍ°¡ ¾Æ´Ï¶ó Å×ÀÌºíÀÇ ±¸Á¶¸¦ º¸´Â ¹æ¹ý
+SQL> --DESC EMP;
+SQL> DESC EMP
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ EMPNO                                                                                                             NOT NULL NUMBER
+ ENAME                                                                                                                      VARCHAR2(10)
+ JOB                                                                                                                        VARCHAR2(9)
+ MGR                                                                                                                        NUMBER
+ HIREDATE                                                                                                                   DATE
+ SAL                                                                                                                        NUMBER
+ COMM                                                                                                                       NUMBER
+ DEPTNO                                                                                                                     NUMBER
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME                        LOC                                                                                                                                                             
+---------- ---------------------------- --------------------------                                                                                                                                      
+        10 ACCOUNTING                   NEW YORK                                                                                                                                                        
+        20 RESEARCH                     DALLAS                                                                                                                                                          
+        30 SALES                        CHICAGO                                                                                                                                                         
+        40 OPERATIONS                   BOSTON                                                                                                                                                          
+
+SQL> select * from emp;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                                                                                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                                                                                 
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                                                                                 
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                                                                                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                                                                                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                                                                                 
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                                                                                 
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                                                                                 
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                                                                                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                                                                                 
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                                                                                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                                                                                 
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                                                                                 
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                                                                                 
+
+14 rows selected.
+
+SQL> SET PAGESIZE 20
+SQL> select table_name from USER_TABLES;
+
+TABLE_NAME                                                                                                                                                                                              
+------------------------------------------------------------                                                                                                                                            
+DEPT                                                                                                                                                                                                    
+EMP                                                                                                                                                                                                     
+CUSTOMER                                                                                                                                                                                                
+OWNER                                                                                                                                                                                                   
+ANIMALTYPE                                                                                                                                                                                              
+PET                                                                                                                                                                                                     
+
+6 rows selected.
+
+SQL> SELECT TABLE_NAME FROM USER_TABLES;
+
+TABLE_NAME                                                                                                                                                                                              
+------------------------------------------------------------                                                                                                                                            
+DEPT                                                                                                                                                                                                    
+EMP                                                                                                                                                                                                     
+CUSTOMER                                                                                                                                                                                                
+OWNER                                                                                                                                                                                                   
+ANIMALTYPE                                                                                                                                                                                              
+PET                                                                                                                                                                                                     
+
+6 rows selected.
+
+SQL> SELECT SEQUENCE_NAME FROM USER_SEQUENCES;
+
+SEQUENCE_NAME                                                                                                                                                                                           
+------------------------------------------------------------                                                                                                                                            
+SEQ_ANIMALTYPE                                                                                                                                                                                          
+SEQ_CUSTOMER                                                                                                                                                                                            
+SEQ_OWNER                                                                                                                                                                                               
+SEQ_PET                                                                                                                                                                                                 
+
+SQL> --µ¿¹° Á¤º¸¸¦ ÀÔ·ÂÇÑ´Ù.
+SQL> DESC ANIMALTYPE;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ ANIMALTYPE_ID                                                                                                     NOT NULL NUMBER
+ TYPE_NAME                                                                                                                  VARCHAR2(25)
+
+SQL> INSERT INTO ANIMALTYPE(ANIMALTYPE_ID, TYPE_NAME)
+  2  VALUES(SEQ_ANIMALTYPE.NEXTVAL, '¿ø¼þÀÌ');
+
+1 row created.
+
+SQL> SELECT * FROM ANIMALTYPE;
+
+ANIMALTYPE_ID TYPE_NAME                                                                                                                                                                                 
+------------- --------------------------------------------------                                                                                                                                        
+            1 ¿ø¼þÀÌ                                                                                                                                                                                    
+
+SQL> INSERT INTO ANIMALTYPE(ANIMALTYPE_ID, TYPE_NAME)
+  2  VALUES(SEQ_ANIMALTYPE.NEXTVAL, '°­¾ÆÁö');
+
+1 row created.
+
+SQL> INSERT INTO ANIMALTYPE(ANIMALTYPE_ID, TYPE_NAME)
+  2  VALUES(SEQ_ANIMALTYPE.NEXTVAL, '°í¾çÀÌ');
+
+1 row created.
+
+SQL> INSERT INTO ANIMALTYPE(ANIMALTYPE_ID, TYPE_NAME)
+  2  VALUES(SEQ_ANIMALTYPE.NEXTVAL, '¸»');
+
+1 row created.
+
+SQL> SELECT * FROM ANIMAL;
+SELECT * FROM ANIMAL
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> SELECT * FROM ANIMALTYPE;
+
+ANIMALTYPE_ID TYPE_NAME                                                                                                                                                                                 
+------------- --------------------------------------------------                                                                                                                                        
+            1 ¿ø¼þÀÌ                                                                                                                                                                                    
+            2 °­¾ÆÁö                                                                                                                                                                                    
+            3 °í¾çÀÌ                                                                                                                                                                                    
+            4 ¸»                                                                                                                                                                                        
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> --º¸È£ÀÚÁ¤º¸ ÀÔ·Â
+SQL> DESC OWNER
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ OWNER_ID                                                                                                          NOT NULL NUMBER
+ OWNER_NAME                                                                                                                 VARCHAR2(20)
+ PHONE                                                                                                                      VARCHAR2(20)
+
+SQL> INSERT INTO OWNER(OWNER_ID, OWNER_NAME, PHONE)
+  2  VALUES(SEQ_OWNER.NEXTVAL, 'ADAMS','010-2222-3333');
+
+1 row created.
+
+SQL> INSERT INTO OWNER(OWNER_ID, OWNER_NAME, PHONE)
+  2  VALUES(SEQ_OWNER.NEXTVAL, 'SCOTT','010-3333-4444');
+
+1 row created.
+
+SQL> SELECT * FROM OWNER;
+
+  OWNER_ID OWNER_NAME                               PHONE                                                                                                                                               
+---------- ---------------------------------------- ----------------------------------------                                                                                                            
+         1 ADAMS                                    010-2222-3333                                                                                                                                       
+         2 SCOTT                                    010-3333-4444                                                                                                                                       
+
+SQL> INSERT INTO OWNER(OWNER_ID, OWNER_NAME, PHONE)
+  2  VALUES(SEQ_OWNER.NEXTVAL, 'KING','010-5555-6666');
+
+1 row created.
+
+SQL> SELECT * FROM OWNER;
+
+  OWNER_ID OWNER_NAME                               PHONE                                                                                                                                               
+---------- ---------------------------------------- ----------------------------------------                                                                                                            
+         1 ADAMS                                    010-2222-3333                                                                                                                                       
+         2 SCOTT                                    010-3333-4444                                                                                                                                       
+         3 KING                                     010-5555-6666                                                                                                                                       
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> DESC PET;
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ PET_ID                                                                                                            NOT NULL NUMBER
+ PET_NAME                                                                                                                   VARCHAR2(20)
+ AGE                                                                                                                        NUMBER
+ OWNER_ID                                                                                                                   NUMBER
+ ANIMALTYPE_ID                                                                                                              NUMBER
+
+SQL> INSERT INTO PET(PET_ID, PET_NAME, AGE, OWNER_ID, ANIMALTYPE_ID)
+  2  VALUES(SEQ_PET.NEXTVAL, 'Â¯¾Æ', 3, 1, 3);
+
+1 row created.
+
+SQL> SELECT * FROM PET;
+
+    PET_ID PET_NAME                                        AGE   OWNER_ID ANIMALTYPE_ID                                                                                                                 
+---------- ---------------------------------------- ---------- ---------- -------------                                                                                                                 
+         1 Â¯¾Æ                                              3          1             3                                                                                                                 
+
+SQL> --Á¤±ÔÈ­¿¡ ÀÇÇØ Å×ÀÌºíÀ» ºÐ¸®´Â Àß ½ÃÄ×À¸³ª, ¸·»ó Å×ÀÌºíÀ» Á¶È¸ÇÏ¸é FK°ª ¶§¹®¿¡
+SQL> --°ªÀÌ ¹«¾ùÀÎÁö ¾Ë ¼ö ¾ø´Ù.
+SQL> --µû¶ó¼­ ¸¶Ä¡ ÇÏ³ªÀÇ Å×ÀÌºíÃ³·³ ·¹ÄÚµå¸¦ °¡»óÀ¸·Î Á¶È¸ÇÏÀÚ.
+SQL> --ÀÌ°ÍÀÌ ¹Ù·Î Á¶ÀÎ
+SQL> SELECT
+  2  ;
+
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = O.OWNER_ID
+SQL> RUN
+  1  SELECT
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = O.OWNER_ID
+FROM PET P, OWNER O
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = P.OWNER_ID
+SQL> RUN
+  1  SELECT
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = P.OWNER_ID
+FROM PET P, OWNER O
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = P.OWNER_ID
+SQL> RUN
+  1  SELECT *
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = P.OWNER_ID
+
+    PET_ID PET_NAME                                        AGE   OWNER_ID ANIMALTYPE_ID   OWNER_ID OWNER_NAME                               PHONE                                                       
+---------- ---------------------------------------- ---------- ---------- ------------- ---------- ---------------------------------------- ----------------------------------------                    
+         1 Â¯¾Æ                                              3          1             3          1 ADAMS                                    010-2222-3333                                               
+         1 Â¯¾Æ                                              3          1             3          2 SCOTT                                    010-3333-4444                                               
+         1 Â¯¾Æ                                              3          1             3          3 KING                                     010-5555-6666                                               
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = O.OWNER_ID
+SQL> RUN
+  1  SELECT *
+  2  FROM PET P, OWNER O
+  3* WHERE P.OWNER_ID = O.OWNER_ID
+
+    PET_ID PET_NAME                                        AGE   OWNER_ID ANIMALTYPE_ID   OWNER_ID OWNER_NAME                               PHONE                                                       
+---------- ---------------------------------------- ---------- ---------- ------------- ---------- ---------------------------------------- ----------------------------------------                    
+         1 Â¯¾Æ                                              3          1             3          1 ADAMS                                    010-2222-3333                                               
+
+SQL> commit;
+
+Commit complete.
+
+SQL> select * from pet
+  2  ;
+
+    PET_ID PET_NAME                                        AGE   OWNER_ID ANIMALTYPE_ID                                                                                                                 
+---------- ---------------------------------------- ---------- ---------- -------------                                                                                                                 
+         1 Â¯¾Æ                                              3          1             3                                                                                                                 
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                                                                                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                                                                                 
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                                                                                 
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                                                                                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                                                                                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                                                                                 
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                                                                                 
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                                                                                 
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                                                                                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                                                                                 
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                                                                                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                                                                                 
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                                                                                 
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                                                                                 
+
+14 rows selected.
+
+SQL> SELECT DEPTNO
+  2  FROM EMP
+  3  
+SQL> ;
+  1  SELECT DEPTNO
+  2* FROM EMP
+SQL> ;
+  1  SELECT DEPTNO
+  2* FROM EMP
+SQL> ;
+  1  SELECT DEPTNO
+  2* FROM EMP
+SQL> ;
+  1  SELECT DEPTNO
+  2* FROM EMP
+SQL> ;
+  1  SELECT DEPTNO
+  2* FROM EMP
+SQL> ED
+Wrote file afiedt.buf
+
+SP2-0223: No lines in SQL buffer.
+  1  ;
+ERROR:
+ORA-24373: invalid length specified for statement 
+
+
+SQL> SELECT DEPTNO, COUNT(*) AS EMP_COUNT
+  2  FROM EMP
+  3  GROUP BY DEPTNO
+  4  HAVING COUNT(*) >= 5;
+
+    DEPTNO  EMP_COUNT                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+        30          6                                                                                                                                                                                   
+        20          5                                                                                                                                                                                   
+
+SQL> SELECT COUNT()
+  2  FROM EMP
+  3  WHERE ;
+SELECT COUNT()
+       *
+ERROR at line 1:
+ORA-00909: invalid number of arguments 
+
+
+SQL> SELECT COUNT(*) AS SMITH'S
+  2  FROM EMP E, DEPT D
+  3  WHERE E.ENAME = 'SMITH';
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                                                                                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                                                                                 
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                                                                                 
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                                                                                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                                                                                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                                                                                 
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                                                                                 
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                                                                                 
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                                                                                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                                                                                 
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                                                                                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                                                                                 
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                                                                                 
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                                                                                 
+
+14 rows selected.
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME                        LOC                                                                                                                                                             
+---------- ---------------------------- --------------------------                                                                                                                                      
+        10 ACCOUNTING                   NEW YORK                                                                                                                                                        
+        20 RESEARCH                     DALLAS                                                                                                                                                          
+        30 SALES                        CHICAGO                                                                                                                                                         
+        40 OPERATIONS                   BOSTON                                                                                                                                                          
+
+SQL> SELECT DEPTNO, COUNT(*) AS WHAT
+  2  FROM EMP
+  3  GROUP BY DEPTNO
+  4  HAVING COUNT(*) >= 5
+  5  ;
+
+    DEPTNO       WHAT                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+        30          6                                                                                                                                                                                   
+        20          5                                                                                                                                                                                   
+
+SQL> --¼Ò¼ÓµÈ ÃÑ »ç¿ø ¼ö°¡ 5¸í ÀÌ»óÀÎ ºÎ¼­ÀÇ ºÎ¼­¹øÈ£, ¼Ò¼Ó»ç¿ø¼ö¸¦ Ãâ·ÂÇÏ¼¼¿ä.
+SQL> --Çß°í
+SQL> --2. SMITH°¡ ¼Ò¼ÓµÈ ºÎ¼­ÀÇ ÃÑ »ç¿ø¼ö¸¦ Ãâ·ÂÇÏ¼¼¿ä
+SQL> SELECT COUNT(*)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.ENAME ='SMITH';
+
+  COUNT(*)                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(*) AS SMITH'S
+  2  FROM EMP E, DEPT D
+  3* WHERE E.ENAME ='SMITH'
+SQL> RUN
+  1  SELECT COUNT(*) AS SMITH'S
+  2  FROM EMP E, DEPT D
+  3* WHERE E.ENAME ='SMITH'
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP E, DEPT D
+  3* WHERE E.ENAME ='SMITH'
+SQL> RUN
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP E, DEPT D
+  3* WHERE E.ENAME ='SMITH'
+
+   SMITHES                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         4                                                                                                                                                                                              
+
+SQL> SELECT * FROM EMP';
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO                                                                                                 
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ----------                                                                                                 
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20                                                                                                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30                                                                                                 
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30                                                                                                 
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20                                                                                                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30                                                                                                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30                                                                                                 
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10                                                                                                 
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20                                                                                                 
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10                                                                                                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30                                                                                                 
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20                                                                                                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30                                                                                                 
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20                                                                                                 
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10                                                                                                 
+
+14 rows selected.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1* SELECT * FROM EMP
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP
+  3* WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME ='SMITH')
+SQL> 
+SQL> RUN
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP
+  3* WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME ='SMITH')
+
+   SMITHES                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         5                                                                                                                                                                                              
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP
+  3* WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME ='SMITH')
+SQL> ;
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP
+  3* WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME ='SMITH')
+SQL> ;
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP
+  3* WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME ='SMITH')
+SQL> RUN
+  1  SELECT COUNT(*) AS SMITHES
+  2  FROM EMP
+  3* WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME ='SMITH')
+
+   SMITHES                                                                                                                                                                                              
+----------                                                                                                                                                                                              
+         5                                                                                                                                                                                              
+
+SQL> DZ
+SP2-0042: unknown command "DZ" - rest of line ignored.
+SQL> --¼Ò¼ÓµÈ ÃÑ »ç¿ø¼ö°¡ 5¸í ÀÌ»êÀÎ ºÎ¼­ÀÇ ºÎ¼­¹øÈ£, ¼Ò¼Ó »ç¿ø¼ö¸¦ Ãâ·Â
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM EMP E, DEPT D
+  3* WHERE E.DEPTNO = D.DEPTNO
+SQL> RUN
+  1  SELECT *
+  2  FROM EMP E, DEPT D
+  3* WHERE E.DEPTNO = D.DEPTNO
+
+     EMPNO ENAME                JOB                       MGR HIREDATE        SAL       COMM     DEPTNO     DEPTNO DNAME                        LOC                                                     
+---------- -------------------- ------------------ ---------- -------- ---------- ---------- ---------- ---------- ---------------------------- --------------------------                              
+      7782 CLARK                MANAGER                  7839 81/06/09       2450                    10         10 ACCOUNTING                   NEW YORK                                                
+      7839 KING                 PRESIDENT                     81/11/17       5000                    10         10 ACCOUNTING                   NEW YORK                                                
+      7934 MILLER               CLERK                    7782 82/01/23       1300                    10         10 ACCOUNTING                   NEW YORK                                                
+      7566 JONES                MANAGER                  7839 81/04/02       2975                    20         20 RESEARCH                     DALLAS                                                  
+      7902 FORD                 ANALYST                  7566 81/12/03       3000                    20         20 RESEARCH                     DALLAS                                                  
+      7876 ADAMS                CLERK                    7788 87/05/23       1100                    20         20 RESEARCH                     DALLAS                                                  
+      7369 SMITH                CLERK                    7902 80/12/17        800                    20         20 RESEARCH                     DALLAS                                                  
+      7788 SCOTT                ANALYST                  7566 87/04/19       3000                    20         20 RESEARCH                     DALLAS                                                  
+      7521 WARD                 SALESMAN                 7698 81/02/22       1250        500         30         30 SALES                        CHICAGO                                                 
+      7844 TURNER               SALESMAN                 7698 81/09/08       1500          0         30         30 SALES                        CHICAGO                                                 
+      7499 ALLEN                SALESMAN                 7698 81/02/20       1600        300         30         30 SALES                        CHICAGO                                                 
+      7900 JAMES                CLERK                    7698 81/12/03        950                    30         30 SALES                        CHICAGO                                                 
+      7698 BLAKE                MANAGER                  7839 81/05/01       2850                    30         30 SALES                        CHICAGO                                                 
+      7654 MARTIN               SALESMAN                 7698 81/09/28       1250       1400         30         30 SALES                        CHICAGO                                                 
+
+14 rows selected.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4* GROUP BY D.DEPTNO
+SQL> ;
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4* GROUP BY D.DEPTNO
+SQL> RUN
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4* GROUP BY D.DEPTNO
+
+    DEPTNO COUNT(EMPNO)                                                                                                                                                                                 
+---------- ------------                                                                                                                                                                                 
+        30            6                                                                                                                                                                                 
+        20            5                                                                                                                                                                                 
+        10            3                                                                                                                                                                                 
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5;
+SQL> RUN
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5;
+HAVING COUNT(EMPNO) >= 5;
+                        *
+ERROR at line 5:
+ORA-00911: invalid character 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5
+SQL> /
+
+    DEPTNO COUNT(EMPNO)                                                                                                                                                                                 
+---------- ------------                                                                                                                                                                                 
+        30            6                                                                                                                                                                                 
+        20            5                                                                                                                                                                                 
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5;
+SQL> 
+SQL> /
+HAVING COUNT(EMPNO) >= 5;
+                        *
+ERROR at line 5:
+ORA-00911: invalid character 
+
+
+SQL> RUN
+  1  SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5;
+HAVING COUNT(EMPNO) >= 5;
+                        *
+ERROR at line 5:
+ORA-00911: invalid character 
+
+
+SQL> SELECT D.DEPTNO, COUNT(EMPNO)
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5  HAVING COUNT(EMPNO) >= 5;
+
+    DEPTNO COUNT(EMPNO)                                                                                                                                                                                 
+---------- ------------                                                                                                                                                                                 
+        30            6                                                                                                                                                                                 
+        20            5                                                                                                                                                                                 
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D.DEPTNO AS ë¶€ì„œë²ˆí˜¸, COUNT(EMPNO) AS ì†Œì†ì‚¬ì›ìˆ˜
+
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5
+SQL> ;
+  1  SELECT D.DEPTNO AS ë¶€ì„œë²ˆí˜¸, COUNT(EMPNO) AS ì†Œì†ì‚¬ì›ìˆ˜
+
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5
+SQL> /
+SELECT D.DEPTNO AS ë¶€ì„œë²ˆí˜¸, COUNT(EMPNO) AS ì†Œì†ì‚¬ì›ìˆ˜
+
+                                      *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> RUN
+  1  SELECT D.DEPTNO AS ë¶€ì„œë²ˆí˜¸, COUNT(EMPNO) AS ì†Œì†ì‚¬ì›ìˆ˜
+
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5
+SELECT D.DEPTNO AS ë¶€ì„œë²ˆí˜¸, COUNT(EMPNO) AS ì†Œì†ì‚¬ì›ìˆ˜
+
+                                      *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D.DEPTNO AS BUSEONUM, COUNT(EMPNO) AS EMPNUM
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5
+  6  RUN
+  7  ;
+RUN
+*
+ERROR at line 6:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> RUN
+  1  SELECT D.DEPTNO AS BUSEONUM, COUNT(EMPNO) AS EMPNUM
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5  HAVING COUNT(EMPNO) >= 5
+  6  RUN
+  7* 
+RUN
+*
+ERROR at line 6:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT D.DEPTNO AS BUSEONUM, COUNT(EMPNO) AS EMPNUM
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5
+SQL> RUN
+  1  SELECT D.DEPTNO AS BUSEONUM, COUNT(EMPNO) AS EMPNUM
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4  GROUP BY D.DEPTNO
+  5* HAVING COUNT(EMPNO) >= 5
+
+  BUSEONUM     EMPNUM                                                                                                                                                                                   
+---------- ----------                                                                                                                                                                                   
+        30          6                                                                                                                                                                                   
+        20          5                                                                                                                                                                                   
+
+SQL> --SMITH°¡ ¼Ò¼ÓµÈ ºÎ¼­ÀÇ ÃÑ »ç¿ø¼öº¸´Ù, ¼Ò¼Ó »ç¿ø¼ö°¡ ´õ ¸¹Àº ºÎ¼­ÀÇ
+SQL> --ºÎ¼­¹øÈ£, ºÎ¼­¸í, ºÎ¼­À§Ä¡¸¦ Ãâ·Â
+SQL> SELECT
+  2  ;
+
+*
+ERROR at line 2:
+ORA-00936: missing expression 
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(EMPNO), D.DEPTNO
+  2  FROM EMP E, DEPT D
+  3  WHERE E.DEPTNO = D.DEPTNO
+  4* GROUP BY D.DEPTNO
+SQL> /
+
+COUNT(EMPNO)     DEPTNO                                                                                                                                                                                 
+------------ ----------                                                                                                                                                                                 
+           6         30                                                                                                                                                                                 
+           5         20                                                                                                                                                                                 
+           3         10                                                                                                                                                                                 
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT COUNT(EMPNO), D.DEPTNO
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4* GROUP BY D.DEPTNO
+SQL> RUN
+  1  SELECT COUNT(EMPNO), D.DEPTNO
+  2  FROM EMP E INNER JOIN DEPT D
+  3  ON E.DEPTNO = D.DEPTNO
+  4* GROUP BY D.DEPTNO
+
+COUNT(EMPNO)     DEPTNO                                                                                                                                                                                 
+------------ ----------                                                                                                                                                                                 
+           6         30                                                                                                                                                                                 
+           5         20                                                                                                                                                                                 
+           3         10                                                                                                                                                                                 
+
+SQL> SPOOL OFF;
